@@ -16,6 +16,14 @@ ${record.prefix} IN A ${record.ip}
 %{ endif ~}
 %{ endfor ~}
 
+%{ for record in mx_records ~}
+%{ if record.prefix != "" ~}
+${record.prefix} IN MX ${record.priority} ${record.address}
+%{ else ~}
+@ IN MX ${record.priority} ${record.address}
+%{ endif ~}
+%{ endfor ~}
+
 %{ for ip in dns_server_ips ~}
 ${dns_server_name} IN A ${ip}
 %{ endfor ~}

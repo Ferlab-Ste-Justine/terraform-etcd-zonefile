@@ -12,6 +12,7 @@ locals {
           serial_number = "temp"
           cache_ttl = var.cache_ttl
           a_records = var.a_records
+          mx_records = var.mx_records
           dns_server_name = local.dns_server_name
           email = local.email
           dns_server_ips = var.dns_server_ips
@@ -35,6 +36,7 @@ resource "etcd_key" "zonefile" {
       serial_number = time_static.zonefile_update.unix
       cache_ttl = var.cache_ttl
       a_records = var.a_records
+      mx_records = var.mx_records
       dns_server_name = local.dns_server_name
       email = local.email
       dns_server_ips = var.dns_server_ips

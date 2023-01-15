@@ -5,7 +5,20 @@ variable domain {
 
 variable a_records {
   description = "List of a records having the following keys: prefix, ip"
-  type = list(map(string))
+  type = list(object({
+    prefix = string
+    ip     = string
+  }))
+}
+
+variable mx_records {
+  description = "List of mx records having the following keys: prefix, ip"
+  type = list(object({
+    prefix   = string
+    priority = number
+    address  = string
+  }))
+  default = []
 }
 
 variable key_prefix {
