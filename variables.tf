@@ -18,6 +18,7 @@ variable mx_records {
     priority = number
     address  = string
   }))
+  default = []
 }
 
 variable key_prefix {
