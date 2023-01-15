@@ -12,7 +12,7 @@ variable a_records {
 }
 
 variable mx_records {
-  description = "List of mx records having the following keys: prefix, ip"
+  description = "List of mx records having the following keys: prefix, priority, address"
   type = list(object({
     prefix   = string
     priority = number

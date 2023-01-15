@@ -27,7 +27,8 @@ This will be good enough as long as your zonefile is not updated more than once 
 ## Input
 
 - **domain**: Domain that the zonefile is for. A dot at the end is not required.
-- **a_records**: List of mappings, each having a **prefix** (subdomain) and **ip** key. If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
+- **a_records**: List of objects, each having a **prefix** (subdomain) and **ip** key. If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
+- **mx_records**: List of objects, each having a **prefix** (subdomain), **priority** (integer giving email server priority) and **address** (domain of email server). If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **key_prefix**: Etcd key prefix that will prefix the domain to form the etcd key where the zonefile will be stored.
 - **cache_ttl**: How long (in seconds) should resolvers cache the values retrieved from the zonefile. Defaults to 5 seconds.
 - **email**: Email address to put in **SOA** record. This needs to be a fully qualified domain so the **@** should be replaced by a dot and a dot needs to be appeneded at the end. Defaults to **no-op.domain.** if undefined, where **domain** is the domain you passed as an argument.
