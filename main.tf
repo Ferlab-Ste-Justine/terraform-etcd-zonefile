@@ -13,6 +13,7 @@ locals {
           cache_ttl = var.cache_ttl
           a_records = var.a_records
           mx_records = var.mx_records
+          txt_records = var.txt_records
           dns_server_name = local.dns_server_name
           email = local.email
           dns_server_ips = var.dns_server_ips
@@ -37,6 +38,7 @@ resource "etcd_key" "zonefile" {
       cache_ttl = var.cache_ttl
       a_records = var.a_records
       mx_records = var.mx_records
+      txt_records = var.txt_records
       dns_server_name = local.dns_server_name
       email = local.email
       dns_server_ips = var.dns_server_ips

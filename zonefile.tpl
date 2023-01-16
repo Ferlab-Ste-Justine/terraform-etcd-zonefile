@@ -24,6 +24,14 @@ ${record.prefix} IN MX ${record.priority} ${record.address}
 %{ endif ~}
 %{ endfor ~}
 
+%{ for record in txt_records ~}
+%{ if record.prefix != "" ~}
+${record.prefix} IN TXT "${record.text}"
+%{ else ~}
+@ IN TXT "${record.text}"
+%{ endif ~}
+%{ endfor ~}
+
 %{ for ip in dns_server_ips ~}
 ${dns_server_name} IN A ${ip}
 %{ endfor ~}

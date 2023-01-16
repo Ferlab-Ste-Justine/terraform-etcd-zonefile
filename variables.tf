@@ -21,6 +21,15 @@ variable mx_records {
   default = []
 }
 
+variable txt_records {
+  description = "List of txt records having the following keys: prefix, text"
+  type = list(object({
+    prefix   = string
+    text  = string
+  }))
+  default = []
+}
+
 variable key_prefix {
   description = "Etcd key prefix that will prefix the domain to form the etcd key where the zonefile will be stored"
   type = string
