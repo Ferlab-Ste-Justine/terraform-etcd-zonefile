@@ -27,6 +27,7 @@ This will be good enough as long as your zonefile is not updated more than once 
 ## Input
 
 - **domain**: Domain that the zonefile is for. A dot at the end is not required.
+- **ns_records**: List of objects, each having a **prefix** (subdomain) and **nameserver** key.
 - **a_records**: List of objects, each having a **prefix** (subdomain) and **ip** key. If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **mx_records**: List of objects, each having a **prefix** (subdomain), **priority** (integer giving email server priority) and **address** (domain of email server). If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **txt_records**: List of objects, each having a **prefix** (subdomain), and **text** (value of the text field). If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.

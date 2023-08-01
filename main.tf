@@ -11,6 +11,7 @@ locals {
           domain = var.domain
           serial_number = "temp"
           cache_ttl = var.cache_ttl
+          ns_records = var.ns_records
           a_records = var.a_records
           mx_records = var.mx_records
           txt_records = var.txt_records
@@ -36,6 +37,7 @@ resource "etcd_key" "zonefile" {
       domain = var.domain
       serial_number = time_static.zonefile_update.unix
       cache_ttl = var.cache_ttl
+      ns_records = var.ns_records
       a_records = var.a_records
       mx_records = var.mx_records
       txt_records = var.txt_records

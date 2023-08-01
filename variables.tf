@@ -3,6 +3,14 @@ variable domain {
   type = string
 }
 
+variable ns_records {
+  description = "List of ns records having the following keys: prefix, nameserver"
+  type = list(object({
+    prefix     = string
+    nameserver = string
+  }))
+}
+
 variable a_records {
   description = "List of a records having the following keys: prefix, ip"
   type = list(object({
