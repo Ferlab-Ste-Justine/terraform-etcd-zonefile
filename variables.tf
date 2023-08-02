@@ -9,6 +9,7 @@ variable ns_records {
     prefix     = string
     nameserver = string
   }))
+  default = []
 }
 
 variable a_records {
@@ -17,6 +18,7 @@ variable a_records {
     prefix = string
     ip     = string
   }))
+  default = []
 }
 
 variable mx_records {
