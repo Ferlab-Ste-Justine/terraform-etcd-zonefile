@@ -12,10 +12,6 @@ The generated zonefiles have so far been used with the **auto** plugin of **Core
 
 It should theoretically work with other kinds of dns servers, but it has not be empirically verified.
 
-## Supported Records
-
-At the current time, only **A** records are supported. More may be added later as the need arises.
-
 ## Supported Refresh Rates
 
 The epoch, in seconds, is used to update the value of the zonefile serial number.
@@ -29,6 +25,7 @@ This will be good enough as long as your zonefile is not updated more than once 
 - **domain**: Domain that the zonefile is for. A dot at the end is not required.
 - **ns_records**: List of objects, each having a **prefix** (subdomain) and **nameserver** key.
 - **a_records**: List of objects, each having a **prefix** (subdomain) and **ip** key. If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
+- **cname_records**: List of objects, each having a **prefix** (subdomain) and **fqdn** (domain of target host, with a dot at the end). If the **fqdn** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **mx_records**: List of objects, each having a **prefix** (subdomain), **priority** (integer giving email server priority) and **address** (domain of email server). If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **txt_records**: List of objects, each having a **prefix** (subdomain), and **text** (value of the text field). If the **prefix** has the value of the empty string (**""**), the value of **@** is passed to the given record, which will resolve to the domain with no subdomain prefix.
 - **key_prefix**: Etcd key prefix that will prefix the domain to form the etcd key where the zonefile will be stored.

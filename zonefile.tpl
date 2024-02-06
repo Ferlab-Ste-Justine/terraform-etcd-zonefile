@@ -20,6 +20,14 @@ ${record.prefix} IN A ${record.ip}
 %{ endif ~}
 %{ endfor ~}
 
+%{ for record in cname_records ~}
+%{ if record.fqdn != "" ~}
+${record.prefix} IN CNAME ${record.fqdn}
+%{ else ~}
+${record.prefix} IN CNAME @
+%{ endif ~}
+%{ endfor ~}
+
 %{ for record in mx_records ~}
 %{ if record.prefix != "" ~}
 ${record.prefix} IN MX ${record.priority} ${record.address}

@@ -21,6 +21,15 @@ variable a_records {
   default = []
 }
 
+variable cname_records {
+  description = "List of cname records having the following keys: prefix, fqdn"
+  type = list(object({
+    prefix = string
+    fqdn   = string
+  }))
+  default = []
+}
+
 variable mx_records {
   description = "List of mx records having the following keys: prefix, priority, address"
   type = list(object({
