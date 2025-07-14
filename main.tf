@@ -48,4 +48,5 @@ resource "etcd_key" "zonefile" {
       dns_server_ips = var.dns_server_ips
     }
   )
+  clear_on_deletion = var.clear_on_deletion
 }
